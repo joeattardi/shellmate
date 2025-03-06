@@ -1,8 +1,8 @@
 import ollama from 'ollama';
 
-export function generateCommandOllama(description) {
+export function generateCommandOllama(description, config) {
     return ollama.chat({
-        model: 'llama3.2',
+        model: config.model,
         messages: [
             {
                 role: 'system',
