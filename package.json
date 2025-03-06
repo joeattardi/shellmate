@@ -1,0 +1,22 @@
+{
+  "name": "shellmate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "shellmate": "./bin/index.js",
+    "sm": "./bin/index.js"
+  },
+  "keywords": [],
+  "author": "Joe Attardi",
+  "license": "ISC",
+  "description": "Your smart AI companion for the command line",
+  "dependencies": {
+    "commander": "^13.1.0",
+    "ollama": "^0.5.14",
+    "ora": "^8.2.0"
+  }
+}
