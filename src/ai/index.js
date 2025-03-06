@@ -1,19 +1,20 @@
 import ora from 'ora';
 import { generateCommandOllama } from './ollama.js';
 import { config } from '../config.js';
+import { generateCommandOpenAI } from './openai.js';
 
 export async function generateCommand(description) {
     const spinner = ora('Thinking...').start();
-    const { model = 'ollama' } = config;
+    const { provider = 'ollama' } = config;
     let response;
 
-    if (model === 'ollama') {
+    if (provider === 'ollama') {
         response = await generateCommandOllama(description, config.ollama);
-    } else {
-        console.log('OpenAI not yet supported');
+    } else if (provider === 'openai') {
+        response = await generateCommandOpenAI(description, config.openai);
     }
 
     spinner.stop();
     
-    return response.message.content;
+    return response;
 }

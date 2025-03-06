@@ -6,7 +6,12 @@ import chalk from "chalk";
 export async function start() {
   const [description] = program.args;
 
-  await loadConfig();
+  try {
+    await loadConfig();
+  } catch (error) {
+    console.error(error.message);
+    process.exit(1);
+  }
 
   console.log("Generating a command for you:\n");
   console.log(chalk.bold(description));

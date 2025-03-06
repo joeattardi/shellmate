@@ -1,8 +1,11 @@
-import ollama from 'ollama';
+import OpenAI from 'openai';
 
-export async function generateCommandOllama(description, config) {
-    const response = await ollama.chat({
-        model: config.model,
+export async function generateCommandOpenAI(description, config) {
+    const client = new OpenAI({
+        apiKey: config.apiKey
+    });
+
+    const response = await client.chat.completions.create({
         messages: [
             {
                 role: 'system',
@@ -19,8 +22,9 @@ export async function generateCommandOllama(description, config) {
                 role: 'user',
                 content: `Please generate a CLI command that performs the following task: ${description}`
             }
-        ]
+        ],
+        model: config.model
     });
 
-    return response.message.content;
+    return response.choices[0].message.content;
 }
