@@ -1,6 +1,6 @@
 import ora from 'ora';
-import { generateCommandOllama } from './ollama.js';
 import { config } from '../config.js';
+import { generateCommandOllama } from './ollama.js';
 import { generateCommandOpenAI } from './openai.js';
 
 export async function generateCommand(description) {
