@@ -17,6 +17,8 @@
         "zsh"
     ],
     "author": "Joe Attardi",
+    "bugs": "https://github.com/joeattardi/shellmate/issues",
+    "repository": "github:joeattardi/shellmate",
     "license": "ISC",
     "description": "Your smart AI companion for the command line",
     "dependencies": {
