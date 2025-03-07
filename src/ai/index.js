@@ -1,10 +1,8 @@
-import ora from 'ora';
 import { config } from '../config.js';
 import { generateCommandOllama } from './ollama.js';
 import { generateCommandOpenAI } from './openai.js';
 
 export async function generateCommand(description) {
-    const spinner = ora('Thinking...').start();
     const { provider = 'ollama' } = config;
     let response;
 
@@ -13,8 +11,6 @@ export async function generateCommand(description) {
     } else if (provider === 'openai') {
         response = await generateCommandOpenAI(description, config.openai);
     }
-
-    spinner.stop();
     
     return response;
 }

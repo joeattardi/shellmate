@@ -6,19 +6,23 @@ export async function generateCommandOpenAI(description, config) {
         apiKey: config.apiKey
     });
 
-    const response = await client.chat.completions.create({
-        messages: [
-            {
-                role: 'system',
-                content: commandMessages.system
-            },
-            {
-                role: 'user',
-                content: commandMessages.user(description)
-            }
-        ],
-        model: config.model
-    });
+    try {
+        const response = await client.chat.completions.create({
+            messages: [
+                {
+                    role: 'system',
+                    content: commandMessages.system
+                },
+                {
+                    role: 'user',
+                    content: commandMessages.user(description)
+                }
+            ],
+            model: config.model
+        });
 
-    return response.choices[0].message.content;
+        return response.choices[0].message.content;
+    } catch (error) {
+        throw new Error(`OpenAI: ${error.message}`);
+    }
 }

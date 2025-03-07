@@ -22,6 +22,8 @@ In `shellmate.json`, set `provider` to `ollama`. Then, add an `ollama` property 
 
 - `model`: The name of the model to use. Make sure you have already downloaded this model by running `ollama pull <model>`.
 
+Note that Ollama must already be running for Shellmate to be able to communicate with it.
+
 Here is an example `shellmate.json` configured to use Ollama:
 
 ```
