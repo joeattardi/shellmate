@@ -11,6 +11,6 @@ export async function generateCommand(description) {
     } else if (provider === 'openai') {
         response = await generateCommandOpenAI(description, config.openai);
     }
-    
+
     return response;
 }

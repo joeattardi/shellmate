@@ -8,7 +8,7 @@ export async function generateCommandOllama(description, config) {
             messages: [
                 {
                     role: 'system',
-                    content: commandMessages.system,
+                    content: commandMessages.system
                 },
                 {
                     role: 'user',
@@ -20,9 +20,11 @@ export async function generateCommandOllama(description, config) {
         return response.message.content;
     } catch (error) {
         if (error.cause?.code === 'ECONNREFUSED') {
-            throw new Error('Couldn\'t connect to the Ollama server. Is it running?');
+            throw new Error(
+                "Couldn't connect to the Ollama server. Is it running?"
+            );
         }
-        
+
         throw new Error(`Ollama: ${error.message}`);
     }
 }
