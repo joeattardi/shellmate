@@ -2,6 +2,8 @@
 
 Shellmate is a CLI tool that uses AI to translate a description into a valid shell command. It supports local models using Ollama, or OpenAI models.
 
+**NOTE**: AI models, especially less powerful ones running locally on your computer, may hallucinate and generate commands that are incorrect or invalid. You should verify the generated command is correct if there is a chance it could modify or delete something that you don't want it to.
+
 ## Installation
 
 ```
